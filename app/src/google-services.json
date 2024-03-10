@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "559526079127",
+    "project_id": "offlinify-app",
+    "storage_bucket": "offlinify-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559526079127:android:23363df9db677de0f917d2",
+        "android_client_info": {
+          "package_name": "app.offlinify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWKt3ZhLjeav7LovJgeH5gqCpx5mRAQ_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559526079127:android:9477dba55cf28906f917d2",
+        "android_client_info": {
+          "package_name": "offlinify.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWKt3ZhLjeav7LovJgeH5gqCpx5mRAQ_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

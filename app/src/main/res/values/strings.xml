@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Offlinify</string>
+    <string name="home">Home</string>
+    <string name="downloads">Downloads</string>
+    <string name="video_link">Video link</string>
+    <string name="file_not_found">File not found</string>
+    <string name="deleted_successfully">Deleted successfully</string>
+    <string name="try_again_later">Try again later</string>
+    <string name="copy_link">Copy links from any platform</string>
+    <string name="paste_link">Paste link</string>
+</resources>
