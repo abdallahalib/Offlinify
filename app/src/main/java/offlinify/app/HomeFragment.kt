@@ -14,6 +14,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequest
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.google.android.material.snackbar.Snackbar
 import com.yausername.youtubedl_android.YoutubeDL
 import com.yausername.youtubedl_android.YoutubeDLException
@@ -24,6 +29,7 @@ import offlinify.app.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 class HomeFragment : Fragment() {
@@ -46,12 +52,11 @@ class HomeFragment : Fragment() {
         try {
             val ytdl = YoutubeDL.getInstance()
             ytdl.init(requireContext())
-            lifecycleScope.launch(Dispatchers.IO) {
-                if (ytdl.versionName(requireContext()).isNullOrBlank()) {
-                    ytdl.updateYoutubeDL(requireContext(), YoutubeDL.UpdateChannel.STABLE)
-                    Log.i(TAG, ytdl.versionName(requireContext()) ?: "")
-                }
-            }
+                val updateWorkRequest: PeriodicWorkRequest =
+                    PeriodicWorkRequestBuilder<UpdateWorker>(1, TimeUnit.DAYS)
+                        .build()
+                WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork("YTDL_UPDATE", ExistingPeriodicWorkPolicy.KEEP, updateWorkRequest)
+
         } catch (e: YoutubeDLException) {
             Log.e(TAG, e.message ?: "")
         }

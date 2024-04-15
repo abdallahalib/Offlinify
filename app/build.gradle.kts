@@ -59,6 +59,11 @@ android {
         }
         jniLibs.useLegacyPackaging = true
     }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
 }
 
 dependencies {
